@@ -7,6 +7,7 @@ del que se adquieren una o varias unidades. El IVA a aplicar es de 15% y si el S
 while True:
     n= input("Si quieres empezar escribe (Comnzar) y para salir (Terminar)")
     if n== "Terminar":
+        print("Usted ya salio")
         break
     if n == "Comenza":
         Producto = float(input("Ingrese el precio del articulo: "))
