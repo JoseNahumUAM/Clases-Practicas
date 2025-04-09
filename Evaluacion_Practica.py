@@ -2,81 +2,8 @@
 #Fecha de creación: 09/04/2025
 
 
-class Estudiante:
-    def __init__(self, nombre, edad, carrera):
-        """
-        Inicializa un nuevo estudiante con nombre, edad, carrera y una lista vacía de calificaciones.
-        """
-        self.nombre = nombre
-        self.edad = edad
-        self.carrera = carrera
-        self.calificaciones = []
-
-    def agregar_calificacion(self, nota):
-        """
-        Agrega una calificación al estudiante si está dentro del rango 0-100.
-        """
-        if 0 <= nota <= 100:
-            self.calificaciones.append(nota)
-        else:
-            print("La calificación debe estar entre 0 y 100.")
-
-    def promedio(self):
-        """
-        Calcula y devuelve el promedio de las calificaciones del estudiante.
-        """
-        if self.calificaciones:
-            return sum(self.calificaciones) / len(self.calificaciones)
-        else:
-            return 0
-
-    def mostrar_info(self):
-        """
-        Muestra toda la información del estudiante, incluyendo su promedio.
-        """
-        print(f"Nombre: {self.nombre}")
-        print(f"Edad: {self.edad}")
-        print(f"Carrera: {self.carrera}")
-        print(f"Promedio: {self.promedio():.2f}")
-
-
-def mostrar_menu():
-    """
-    Muestra el menú de opciones al usuario.
-    """
-    print("\nMenu de opciones:")
-    print("1. Registrar nuevo estudiante")
-    print("2. Agregar calificación a un estudiante")
-    print("3. Mostrar información de un estudiante")
-    print("4. Mostrar todos los estudiantes")
-    print("5. Salir")
-
-
-def validar_edad(edad):
-    """
-    Valida que la edad ingresada sea un número entero positivo.
-    """
-    try:
-        edad = int(edad)
-        if edad > 0:
-            return edad
-        else:
-            print("La edad debe ser un número entero positivo.")
-            return None
-    except ValueError:
-        print("Por favor, ingrese un número entero válido para la edad.")
-        return None
-
-
-def buscar_estudiante(estudiantes, nombre):
-    """
-    Busca un estudiante por nombre en la lista de estudiantes.
-    """
-    for estudiante in estudiantes:
-        if estudiante.nombre.lower() == nombre.lower():
-            return estudiante
-    return None
-
+from estudiante import Estudiante
+from funciones import mostrar_menu, validar_edad, buscar_estudiante
 
 def main():
     estudiantes = []  # Lista donde se almacenarán los estudiantes registrados
@@ -140,7 +67,6 @@ def main():
 
         else:
             print("Opción no válida, por favor intente nuevamente.")
-
 
 if __name__ == "__main__":
     main()
